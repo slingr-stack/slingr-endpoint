@@ -1,0 +1,83 @@
+{
+    "label": "SLINGR",
+    "name": "slingr",
+    "apiVersion": "v1",
+    "internal": false,
+    "configurationType": "GLOBAL",
+    "deployment": {
+        "profiles":[
+            {
+                "name": "default",
+                "label": "Default",
+                "memory": 256,
+                "description": "Default configuration"
+            }
+        ],
+        "allowMultipleInstances": false
+    },
+    "icon48": "https://storage.googleapis.com/static.slingrs.io/platform/endpoints/slingr.png",
+    "configurationHelpUrl": "/endpoints_slingr.html#configuration",
+    "status": "ACTIVE",
+    "stores": [],
+    "events": [
+        {
+            "label": "Webhook",
+            "name": "webhook"
+        }
+    ],
+    "functions": [
+        {
+            "label": "GET",
+            "name": "_get"
+        },
+        {
+            "label": "POST",
+            "name": "_post"
+        },
+        {
+            "label": "PUT",
+            "name": "_put"
+        },
+        {
+            "label": "DELETE",
+            "name": "_delete"
+        }
+    ],
+    "scripts":[
+        "functions.js"
+    ],
+    "configuration":[
+        {
+            "name": "appUrl",
+            "label": "App URL",
+            "type": "text",
+            "required": true
+        },
+        {
+            "name": "userEmail",
+            "label": "Email",
+            "type": "text",
+            "required": true,
+            "typeOptions": {
+                "validation": "email"
+            }
+        },
+        {
+            "name": "userPassword",
+            "label": "Password",
+            "type": "password"
+        },
+        {
+            "name": "webhook",
+            "label": "Webhook URL",
+            "type": "label",
+            "value": "@config.WEBHOOK_URL"
+        },
+        {
+            "name": "webhookToken",
+            "label": "Webhook token",
+            "type": "text",
+            "defaultGenerator": "utils.generateUUID()"
+        }
+    ]
+}
